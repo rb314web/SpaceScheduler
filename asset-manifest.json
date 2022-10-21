@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SpaceScheduler/static/css/main.9658fa13.css",
+    "main.js": "/SpaceScheduler/static/js/main.f4b661e8.js",
+    "index.html": "/SpaceScheduler/index.html",
+    "main.9658fa13.css.map": "/SpaceScheduler/static/css/main.9658fa13.css.map",
+    "main.f4b661e8.js.map": "/SpaceScheduler/static/js/main.f4b661e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9658fa13.css",
+    "static/js/main.f4b661e8.js"
+  ]
+}
