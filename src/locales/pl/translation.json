@@ -20,7 +20,8 @@
   "app.launchhistory.launchdate": "Data startu",
   "app.launchhistory.launchsite": "Miejsce startu",
 
-  "app.launchhistory.drawer.missionname": "Nazwa misiji",
+  "app.launchhistory.drawer.title": "Szczegóły misji",
+  "app.launchhistory.drawer.missionname": "Nazwa misji",
   "app.launchhistory.drawer.launchdate": "Data startu",
   "app.launchhistory.drawer.description": "Szczegóły",
   "app.launchhistory.drawer.rocket": "Rakieta",
@@ -29,7 +30,10 @@
   "app.launchhistory.drawer.orbit": "Orbita",
   "app.launchhistory.drawer.photo": "Miejsce startu",
   
-  "app.launchhistory.serch": "Szukaj"
+  "app.launchhistory.serch": "Szukaj",
+
+  "app.error": "Przepraszamy, wystąpił błąd",
+  "app.error.button": "Strona główna"
 
 
 }

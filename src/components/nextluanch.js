@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react';
-
 import { getNextLaunch } from '../services/api';
-
-import { Typography, Spin } from 'antd';
-
+import { Spin } from 'antd';
 import ShowData from './showdata';
-
-
-const { Title } = Typography;
+import Error from './error'
 
 export default function NextLuanch(setItem) {
 	const [loading, setLoading] = useState(true);
@@ -36,11 +31,7 @@ export default function NextLuanch(setItem) {
 		}}>
 			{loading && <Spin size="large"/>}
 			{!!errorData && (
-				<code>
-					Error:
-					<br />
-					{errorData}
-				</code>
+				<Error/>
 			)}
 			{!loading && !errorData && !launchData && <div>No data</div>}
 			{!errorData && !!launchData && (

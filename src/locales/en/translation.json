@@ -19,7 +19,9 @@
   "app.launchhistory.missionname": "Mission name",
   "app.launchhistory.launchdate": "Launch date",
   "app.launchhistory.launchsite": "Take-off place",
+
   
+  "app.launchhistory.drawer.title": "Mission detalis",
   "app.launchhistory.drawer.missionname": "Mission name",
   "app.launchhistory.drawer.launchdate": "Launch date",
   "app.launchhistory.drawer.description": "Description",
@@ -29,8 +31,10 @@
   "app.launchhistory.drawer.orbit": "Orbit",
   "app.launchhistory.drawer.photo": "Launchpad place",
 
-  "app.launchhistory.serch": "Search"
+  "app.launchhistory.serch": "Search",
 
+  "app.error": "Sorry, something went wrong.",
+  "app.error.button": "Home page"
 
 
 }

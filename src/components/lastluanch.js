@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
 import { Spin } from 'antd';
-
 import { getLastLaunch } from '../services/api';
-
 import ShowData from './showdata';
+import Error from './error'
 
 export default function LastLuanch(setItem) {
 	const [loading, setLoading] = useState(true);
@@ -33,11 +31,7 @@ export default function LastLuanch(setItem) {
 		}}>
 			{loading && <Spin size='large' />}
 			{!!errorData && (
-				<code>
-					Error:
-					<br />
-					{errorData}
-				</code>
+				<Error/>
 			)}
 			{!loading && !errorData && !launchData && <div>No data</div>}
 			{!errorData && !!launchData && (

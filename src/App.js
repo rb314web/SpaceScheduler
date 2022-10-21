@@ -1,18 +1,14 @@
 import React, { useState, useContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import 'antd/dist/antd.min.css';
-import './assets/styles/app.css';
-
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import { Breadcrumb, Layout, Menu } from 'antd';
-
 import LastLuanch from './components/lastluanch';
 import NextLuanch from './components/nextluanch';
 import HistoryLuanch from './components/historyluanch';
 import StartPage from './components/startpage.js';
-
 import { FormattedMessage } from 'react-intl';
 import { Context } from './components/wrapper';
+import 'antd/dist/antd.min.css';
+import './assets/styles/app.css';
 
 const { Header, Content, Footer } = Layout;
 
@@ -72,12 +68,13 @@ function App() {
 							},
 						]}
 					/>
-
-<select value = {context.locale} onChange={context.selectLanguage}>
-         <option value= 'en-EN'>English</option>
-         <option value= 'pl-PL'>Polish</option>
-       </select>
-
+					<select
+						className=''
+						value={context.locale}
+						onChange={context.selectLanguage}>
+						<option value='en-EN'>English</option>
+						<option value='pl-PL'>Polish</option>
+					</select>
 				</div>
 			</Header>
 			<Content
@@ -109,6 +106,7 @@ function App() {
 								path='/history'
 								element={<HistoryLuanch setItem={setItem} />}
 							/>
+							<Route path='*' element={<StartPage setItem={setItem}/>} />
 						</Routes>
 					</Content>
 				</Layout>

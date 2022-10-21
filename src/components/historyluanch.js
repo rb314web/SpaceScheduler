@@ -1,30 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
-
 import Highlighter from 'react-highlight-words';
-
 import moment from 'moment';
-
 import { getHistoryLaunch } from '../services/api';
-
 import {FormattedMessage} from 'react-intl';
-
 import {
 	Table,
 	Spin,
 	Drawer,
-	DatePicker,
 	Button,
 	Space,
 	Input,
+	Typography
 } from 'antd';
-
 import { SearchOutlined } from '@ant-design/icons';
+import Error from './error'
+
+const { Link } = Typography;
 
 export default function HistoryLunch(setItem) {
 	const [loading, setLoading] = useState(true);
 	const [launchData, setLaunchData] = useState([]);
-	const [launchData1, setLaunchData1] = useState([]);
-	const [launchData2, setLaunchData2] = useState();
+	const [launchDataFull, setlaunchDataFull] = useState([]);
+	const [launchDataDrawer, setlaunchDataDrawer] = useState();
 	const [errorData, setErrorData] = useState();
 	const [open, setOpen] = useState(false);
 
@@ -138,11 +135,20 @@ export default function HistoryLunch(setItem) {
 		setItem.setItem('item-3');
 		fetchData();
 	}, []);
-
-	const { RangePicker } = DatePicker;
+	
+	const fetchData = async () => {
+		setLoading(true);
+		const [data, error] = await getHistoryLaunch(50);
+		setLaunchData(data?.results);
+		setlaunchDataFull(data?.results);
+		processingData(data?.results);
+		setErrorData(error);
+		setLoading(false);
+	};
+	
 
 	const showDrawer = (e) => {
-		setLaunchData2(launchData1[e.key])
+		setlaunchDataDrawer(launchDataFull[e.key])
 		setOpen(true);
 	};
 
@@ -150,15 +156,6 @@ export default function HistoryLunch(setItem) {
 		setOpen(false);
 	};
 
-	const fetchData = async () => {
-		setLoading(true);
-		const [data, error] = await getHistoryLaunch(50);
-		setLaunchData(data?.results);
-		setLaunchData1(data?.results);
-		processingData(data?.results);
-		setErrorData(error);
-		setLoading(false);
-	};
 
 	const columns = [
 		{
@@ -166,12 +163,13 @@ export default function HistoryLunch(setItem) {
 			dataIndex: '',
 			key: 'x',
 			render: (e) => (
-				<a
+				<Link
+				target="_blank"
 					onClick={() => {
 						showDrawer(e);
 					}}>
 					<FormattedMessage id ="app.launchhistory.details"/>
-				</a>
+				</Link>
 			),
 		},
 		{
@@ -200,7 +198,7 @@ export default function HistoryLunch(setItem) {
 		let tempKey = 0;
 
 		data.forEach((element) => {
-			let x = {
+			let dataItem = {
 				key: `${tempKey}`,
 				name: `${element.mission.name}`,
 				launchdate: `${element.net.slice(0, 10)}`,
@@ -209,7 +207,7 @@ export default function HistoryLunch(setItem) {
 			};
 
 			tempKey++;
-			tempData.push(x);
+			tempData.push(dataItem);
 			setLaunchData(tempData);
 		});
 	};
@@ -224,11 +222,7 @@ export default function HistoryLunch(setItem) {
 			}}>
 			{loading && <Spin size='large' />}
 			{!!errorData && (
-				<code>
-					Error:
-					<br />
-					{errorData}
-				</code>
+				<Error/>
 			)}
 			{!loading && !errorData && !launchData && <div>No data</div>}
 			{!loading && !errorData && !!launchData && (
@@ -238,29 +232,27 @@ export default function HistoryLunch(setItem) {
 			)}
 
 			<Drawer
-				title='Szczególy misji'
+				title={<FormattedMessage id ="app.launchhistory.drawer.title"/>}
 				placement='right'
 				onClose={onClose}
 				open={open}
-				width='50%'>
+				width='30%'>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.missionname"/></h2>
-				<p>{launchData2 ? launchData2.mission.name : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.mission.name : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.launchdate"/></h2>
-				<p>{launchData2 ? time(launchData2.net) : null}</p>
+				<p>{launchDataDrawer ? time(launchDataDrawer.net) : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.description"/></h2>
-				<p>{launchData2 ? launchData2.mission.description : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.mission.description : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.rocket"/></h2>
-				<p>{launchData2 ? launchData2.rocket.configuration.full_name : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.rocket.configuration.full_name : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.pad"/></h2>
-				<p>{launchData2 ? launchData2.pad.name : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.pad.name : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.status"/></h2>
-				<p>{launchData2 ? launchData2.status.name : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.status.name : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.orbit"/></h2>
-				<p>{launchData2 ? launchData2.mission.orbit.name : null}</p>
+				<p>{launchDataDrawer ? launchDataDrawer.mission.orbit.name : null}</p>
 				<h2><FormattedMessage id ="app.launchhistory.drawer.photo"/></h2>
-				<img style={{width: '100%'}} src={launchData2 ? launchData2.pad.map_image : null}></img>
-
-				
+				<img alt='Launch pad map' style={{width: '100%'}} src={launchDataDrawer ? launchDataDrawer.pad.map_image : null}></img>
 			</Drawer>
 		</div>
 	);

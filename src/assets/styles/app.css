@@ -24,3 +24,12 @@
 .site-layout-background {
 	background: #fff;
 }
+
+select {
+	background-color:#001529;
+	color: #fff;
+	border: none;
+	padding: 10px;
+}
+
+
