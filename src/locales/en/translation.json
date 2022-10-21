@@ -1,0 +1,36 @@
+{
+  "navItem1": "Last launch",
+  "navItem2": "Next launch",
+  "navItem3": "History launch ",
+  "app.startpage": "Next launch:",
+  "app.startpage.button": "See details",
+
+  "app.showdata.launchdate": "Launch date",
+  "app.showdata.rocket": "Rocket",
+  "app.showdata.pad": "Pad",
+  "app.showdata.countrycode": "Country code",
+  "app.showdata.missiontype": "Mission type",
+  "app.showdata.provider": "Provider",
+  "app.showdata.window_start": "Start launch window",
+  "app.showdata.window_end": "End launch window",
+  
+  "app.launchhistory.details": "Details",
+  "app.launchhistory.action": "Action",
+  "app.launchhistory.missionname": "Mission name",
+  "app.launchhistory.launchdate": "Launch date",
+  "app.launchhistory.launchsite": "Take-off place",
+  
+  "app.launchhistory.drawer.missionname": "Mission name",
+  "app.launchhistory.drawer.launchdate": "Launch date",
+  "app.launchhistory.drawer.description": "Description",
+  "app.launchhistory.drawer.rocket": "Rocket",
+  "app.launchhistory.drawer.pad": "Take-off place",
+  "app.launchhistory.drawer.status": "Status",
+  "app.launchhistory.drawer.orbit": "Orbit",
+  "app.launchhistory.drawer.photo": "Launchpad place",
+
+  "app.launchhistory.serch": "Search"
+
+
+
+}

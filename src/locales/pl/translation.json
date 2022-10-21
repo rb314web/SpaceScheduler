@@ -1,0 +1,35 @@
+{
+  "navItem1": "Ostatni lot",
+  "navItem2": "Następny lot",
+  "navItem3": "Historia lotów",
+  "app.startpage": "Następny lot:",
+  "app.startpage.button": "Zobacz szczegóły",
+
+  "app.showdata.launchdate": "Data startu",
+  "app.showdata.rocket": "Rakieta",
+  "app.showdata.pad": "Miejsce startowe",
+  "app.showdata.countrycode": "Kod kraju",
+  "app.showdata.missiontype": "Typ misji",
+  "app.showdata.provider": "Dostawca",
+  "app.showdata.window_start": "Początek okna startowego",
+  "app.showdata.window_end": "Koniec okna startowego",
+
+  "app.launchhistory.details": "Szczegóły",
+  "app.launchhistory.action": "Akcja",
+  "app.launchhistory.missionname": "Nazwa misji",
+  "app.launchhistory.launchdate": "Data startu",
+  "app.launchhistory.launchsite": "Miejsce startu",
+
+  "app.launchhistory.drawer.missionname": "Nazwa misiji",
+  "app.launchhistory.drawer.launchdate": "Data startu",
+  "app.launchhistory.drawer.description": "Szczegóły",
+  "app.launchhistory.drawer.rocket": "Rakieta",
+  "app.launchhistory.drawer.pad": "Miejsce startu",
+  "app.launchhistory.drawer.status": "Status",
+  "app.launchhistory.drawer.orbit": "Orbita",
+  "app.launchhistory.drawer.photo": "Miejsce startu",
+  
+  "app.launchhistory.serch": "Szukaj"
+
+
+}
